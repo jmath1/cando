@@ -1,0 +1,23 @@
+version: '3'
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    command: gunicorn --bind 0.0.0.0:8000  --workers 4 --keep-alive 300 --timeout 300 cando.wsgi:application
+    stdin_open: true
+    tty: true
+    env_file: .env
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+    - django
+    volumes:
+    - ./conf:/etc/nginx/conf.d
