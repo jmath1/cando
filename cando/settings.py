@@ -77,9 +77,12 @@ WSGI_APPLICATION = 'cando.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR + 'db.sqlite3',
-    }
+        'NAME': os.getenv("MYSQL_DATABASE"),
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': os.getenv("MYSQL_USER"),
+        'PASSWORD': os.getenv("MYSQL_ROOT_PASSWORD"),
+        'HOST': 'db',
+    },
 }
 
 
