@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <header>
+            <h1>Welcome to JonathanMath.com</h1>
+            <p>Feel free to poke around and learn what's on my mind.</p>
+        </header>
+        <a href="#main" class="button big scrolly">Poke</a>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+
+    <!-- Section -->
+        <section class="wrapper style1">
+            <div class="inner">
+                <!-- 2 Columns -->
+                    <div class="flex flex-2">
+                        <div class="col col1">
+                            <div class="image round fit">
+                                <a href="generic.html" class="link"><img src="images/pic01.jpg" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <h3>Allow Me to Introduce Myself</h3>
+                            <p>
+                                I am a Python developer and DevOps engineer.
+                                I began my journey as a self taught programmer in 2014 and have worked as
+                                both as a performance engineer and also as a software engineer.
+                                Those jobs gave me the knowledge and experience needed to make 
+                                my way into the world of DevOps.
+                            </p>
+                            <p>
+                                What am I up to now? Traveling the world, living in various places while I work online
+                                as a freelancer. I have been to many countries since leaving my day job and taking the leap
+                                to working online. Enjoy my blog as it covers my travels as well as my experiences in growing as
+                                both a freelancer and developer.
+
+                            </p>
+                            <a href="/contact" class="button">Contact Me</a>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+    <!-- Section -->
+        <section class="wrapper style2">
+            <div class="inner">
+                <div class="flex flex-2">
+                    <div class="col col2">
+                        <h3>My Blog</h3>
+                    </div>
+                    <div class="flex flex-3">
+                        <div">
+                        {% if not blog_posts %}
+                        <p>Blog posts comming soon!</p>
+                        {% endif %}
+                        </div>
+                        {% for blog_post in blog_posts %}
+                        <div class="col align-center">
+                            <div class="image round fit">
+                                <img src="{{ blog_post.image.path }}" alt="" />
+                            </div>
+                            <p>{{ blog_post.title|truncatechars:70 }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+</div>
+{% endblock %}

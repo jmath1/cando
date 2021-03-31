@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<!--
+	Urban by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+    {% load static %}
+		<title>JonathanMath.com</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href= "{% static '/css/main.css' %}" />
+	</head>
+
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="">
+				<div class="logo"><a href="/">Jonathan<span>Math</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/contact">Contact</a></li>
+				</ul>
+			</nav>
+
+      {% block content %}
+      {% endblock %}
+		<!-- Footer -->
+    <footer id="footer">
+      <div class="copyright">
+        <ul class="icons">
+          <li><a href="https://www.github.com/jmath1" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="https://www.linkedin.com/in/jonathanmath" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <li><a href="https://www.instagram.com/yonicando/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+          <li><a href="https://www.facebook.com/yoni.math/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+        </ul>
+      </div>
+    </footer>
+
+  <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

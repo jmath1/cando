@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="main">
+	<section class="wrapper style1">
+		<div class="inner">
+			<div class="6u 12u$(small)">
+				<form action="/email", method="post">
+					{% csrf_token %}
+					{{ form }}
+					<br>
+					<button type="submit">Send</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}
