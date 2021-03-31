@@ -43,5 +43,3 @@ def email(request):
         )
 
     return redirect(request, "success.html")
-
-        
