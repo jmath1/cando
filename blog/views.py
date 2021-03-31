@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from django.shortcuts import render, redirect
 from blog.models import Article
 from blog.forms import EmailForm
 # Create your views here.
@@ -29,5 +31,17 @@ def email(request):
         email_body = f"""
             You received an email from {data.get("first_name")} {data.get("last_name")} at {data.get("email_address")}
             <br><br>
-            {message}
+            {data.get("message")}
         """
+
+        send_mail(
+            'New email from blog',
+            email_body,
+            'donotreply@jonathanmath.com',
+            [settings.ADMIN_EMAIL],
+            fail_silently=False,
+        )
+
+    return redirect(request, "success.html")
+
+        

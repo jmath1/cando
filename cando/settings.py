@@ -127,3 +127,9 @@ STATICFILES_DIRS = [
 
 IMAGE_URL = "/images/"
 IMAGE_ROOT = BASE_DIR + "/static/images"
+
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
+
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
