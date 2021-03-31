@@ -10,6 +10,9 @@ services:
     stdin_open: true
     tty: true
     env_file: .env
+    volumes:
+    - app-files:/srv
+
 
   db:
     image: mysql:latest
