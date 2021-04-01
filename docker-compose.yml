@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   django:
     build:
@@ -11,32 +11,15 @@ services:
     tty: true
     env_file: .env
     volumes:
-    - app-files:/srv
-
-
-  db:
-    image: mysql:latest
-    ports:
-      - 3306:3306
-    env_file: .env
-    volumes:
-      - ./docker/volumes/mysql:/var/lib/mysql
+    - ./:/srv
 
   nginx:
     container_name: nginx
     image: nginx:latest
     ports:
       - 80:80
-      - 443:443
     depends_on:
     - django
     volumes:
     - ./conf:/etc/nginx/conf.d
-    - app-files:/srv/cando
-
-volumes:
-  app-files:
-    driver_opts:
-      type: nfs
-      device: $PWD
-      o: bind
+    - ./:/srv/cando
