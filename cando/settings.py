@@ -24,7 +24,7 @@ SECRET_KEY = 'j%0qdtey%si+*jrk=!mn!3khmb^85$0c_h7nt#j+cybb@0_xh$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.jonathanmath.com","jonathanmath.com"]
 
 
 # Application definition
