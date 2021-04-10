@@ -1,21 +1,21 @@
 version: 2.1
 
-orbs:
-  python: circleci/python@0.2.1
-
+# Define the jobs we want to run for this project
 jobs:
-  build-and-test:
-    executor: python/default
+  pull-and-build:
+    docker:
+      - image: arvindr226/alpine-ssh
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
-      - run:
-          command: ./manage.py runserver
-          name: runserver
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP ".cando/deploy.sh"
 
+# Orchestrate our job run sequence
 workflows:
-  main:
+  version: 2
+  build-project:
     jobs:
-      - build-and-test
+      - pull-and-build:
+          filters:
+            branches:
+              only:
+                - main
